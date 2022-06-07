@@ -25,3 +25,10 @@ Run powershell as administrator and run the below command
     --------------------------------------------
 --> For http requests there are many npm pakages but for now we will  Use
     npm i superagent
+
+    --------------------------------------------
+    Natours Api Project
+    --------------------------------------------
+--> To install express version 4
+    npm i express@4
+    
