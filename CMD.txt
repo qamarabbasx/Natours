@@ -1,0 +1,27 @@
+    npm init
+--> to create more readable Urls
+    npm i slugify
+--> to install nodemon which automatically restarts whenever we made a change
+    npm i nodemon --save-dev
+--> to install it globally 
+    npm i nodemon --global
+--> If this error came "nodemon.ps1 cannot be loaded because running scripts is disabled on this system" do this
+Run powershell as administrator and run the below command
+    Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+--> to check out dated projects
+    npm outdated
+--> we can install pakages with specific version numbers
+    npm i slugify@1.0.0
+--> To update
+    npm update slugify
+--> To uninstall
+    npm uninstall slugify
+--> ^ in pakage.json means it accepts patch and minor releases
+--> ~ in pakage.json means it accepts minor changes only.
+--> If we downloaded code from git and it usually doesnt include nodes_modules folder we can get that through
+    npm install
+    --------------------------------------------
+    Asynchronos Java script
+    --------------------------------------------
+--> For http requests there are many npm pakages but for now we will  Use
+    npm i superagent
