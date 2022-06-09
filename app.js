@@ -23,6 +23,33 @@ app.get('/api/v1/tours', (req, res) => {
     },
   });
 });
+app.get('/api/v1/tours/:id', (req, res) => {
+  // req.params stores all the parameters which we define in the API
+  console.log(req.params);
+  // *1 is the trick to change the string to a NUMBER
+  const id = req.params.id * 1;
+  // First solution to handle if we want to get ID which is not defined in our DB
+  // if (id >= tours.length) {
+  //   return res.status(404).json({
+  //     status: 'fail',
+  //     message: 'Invalid ID',
+  //   });
+  // }
+  const tour = tours.find((el) => el.id === id);
+  // Second solution to handle if we want to get ID which is not defined in our DB
+  if (!tour) {
+    return res.status(404).json({
+      status: 'fail',
+      message: 'Invalid ID',
+    });
+  }
+  res.status(200).json({
+    status: 'success',
+    data: {
+      tour,
+    },
+  });
+});
 app.post('/api/v1/tours', (req, res) => {
   // console.log(req.body);
   const newID = tours[tours.length - 1].id + 1;
