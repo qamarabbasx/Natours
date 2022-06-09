@@ -68,6 +68,22 @@ app.post('/api/v1/tours', (req, res) => {
     }
   );
 });
+// we are not updating  the data here because its hude javascript --> we have to read json file then read properties then update that data, this is dummy data thats why we are not doing update with this dummy json file, BECAUSE in real world we deal with databases not json filess
+app.patch('/api/v1/tours/:id', (req, res) => {
+  if (req.params.id * 1 >= tours.length) {
+    return res.status(404).json({
+      status: 'fail',
+      message: 'Invalid ID',
+    });
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      tour: '<Updated Tour Here...>',
+    },
+  });
+});
 const port = 3000;
 app.listen(port, () => {
   console.log(`App running on ${port}...`);
