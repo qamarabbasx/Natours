@@ -33,4 +33,6 @@ Run powershell as administrator and run the below command
     npm i express@4
 --> To install thir party middleware
     npm i morgan (Http request logger)
+--> To install dotenv for environmental variables
+    npm i dotenv
     
