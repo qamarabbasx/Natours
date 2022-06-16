@@ -18,7 +18,7 @@ Run powershell as administrator and run the below command
     npm uninstall slugify
 --> ^ in pakage.json means it accepts patch and minor releases
 --> ~ in pakage.json means it accepts minor changes only.
---> If we downloaded code from git and it usually doesnt include nodes_modules folder we can get that through
+--> If we downloaded code from git and it usually does not include nodes_modules folder we can get that through
     npm install
     --------------------------------------------
     Asynchronos Java script
@@ -31,7 +31,7 @@ Run powershell as administrator and run the below command
     --------------------------------------------
 --> To install express version 4
     npm i express@4
---> To install thir party middleware
+--> To install third party middleware
     npm i morgan (Http request logger)
 --> To install dotenv for environmental variables
     npm i dotenv

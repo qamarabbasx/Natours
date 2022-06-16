@@ -2,5 +2,9 @@
     "cSpell.words": [
         "natours",
         "Qamar"
+    ],
+    "cSpell.ignoreWords": [
+        "dotenv",
+        "pakages"
     ]
 }
