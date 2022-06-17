@@ -38,3 +38,38 @@ Run powershell as administrator and run the below command
 --> To install and configure Eslint and prettier
     npm i eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-config-airbnb eslint-plugin-node eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react --save-dev
     
+    --------------------------------------------
+    MongoDb commands
+    --------------------------------------------
+--> To run server
+    C:\Program Files\MongoDB\Server\5.0\bin
+    mongod.exe
+--> To run MongoDb
+    mongo.exe
+--> To run mongoDB shell
+    mongo
+    use natours-test
+    show dbs
+    show collections
+    quit()
+--> Create (CRUD)
+    db.tours.insertOne({name:"the Forest Hiker",price:297,rating:4.7})
+    db.tours.insertMany([{name:"The Sea Explorer", price:497,rating:4.8 },{name:"The Snow Adventurer", price:997,rating:4.9,difficulty:"easy"  }])
+--> Read (CRUD)
+    db.tours.find()
+    db.tours.find({name:"the Forest Hiker"})
+--> price is less than or equal 500
+    db.tours.find({price:{$lte:500}})
+--> price is less than 500
+    db.tours.find({price:{$lt:500}})
+    db.tours.find({price:{$lt:500},rating:{$gte:4.8}})
+    db.tours.find({$or: [ {price:{$lte:500}},{rating:{$gte:4.8}}  ]})
+--> Update (CRUD)
+    db.tours.updateOne({name:"The Snow Adventurer"},{$set:{price:598}})
+    db.tours.updateMany({price:{$gt:500},rating:{$gte:4.8}},{$set:{premium:true}})
+--> Delete (CRUD)
+    db.tours.deleteMany({rating:{lte:4.7}})
+    we can delete all documents but don't do this.
+    db.tours.deleteMany({})
+
+    
