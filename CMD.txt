@@ -71,5 +71,8 @@ Run powershell as administrator and run the below command
     db.tours.deleteMany({rating:{lte:4.7}})
     we can delete all documents but don't do this.
     db.tours.deleteMany({})
+    ------------------------------------------------------------------------------
+--> To install driver for mongoDB
+    npm i mongoose@5
 
     
