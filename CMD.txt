@@ -74,5 +74,7 @@ Run powershell as administrator and run the below command
     ------------------------------------------------------------------------------
 --> To install driver for mongoDB
     npm i mongoose@5
+--> To install validator for custom validation
+    npm i validator
 
     
