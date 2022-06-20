@@ -16,12 +16,12 @@ Run powershell as administrator and run the below command
     npm update slugify
 --> To uninstall
     npm uninstall slugify
---> ^ in pakage.json means it accepts patch and minor releases
---> ~ in pakage.json means it accepts minor changes only.
+--> ^ in package.json means it accepts patch and minor releases
+--> ~ in package.json means it accepts minor changes only.
 --> If we downloaded code from git and it usually does not include nodes_modules folder we can get that through
     npm install
     --------------------------------------------
-    Asynchronos Java script
+    Asynchronous Java script
     --------------------------------------------
 --> For http requests there are many npm pakages but for now we will  Use
     npm i superagent
@@ -76,5 +76,7 @@ Run powershell as administrator and run the below command
     npm i mongoose@5
 --> To install validator for custom validation
     npm i validator
+--> To install node debugger
+    npm i ndb --global
 
     
