@@ -80,5 +80,7 @@ Run powershell as administrator and run the below command
     npm i ndb --global
 --> To explore whats inside the error
     console.log(`Error======================${JSON.stringify(error)}`);
+--> To remove already commited/staged file from GIT 
+    git rm --cached config.env
 
     
