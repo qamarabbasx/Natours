@@ -17,6 +17,7 @@ app.use((req, res, next) => {
   console.log('Hello from the middleware');
   next();
 });
+console.log(app.get('env'));
 // Another middleware
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();

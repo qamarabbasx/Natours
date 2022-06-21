@@ -78,5 +78,7 @@ Run powershell as administrator and run the below command
     npm i validator
 --> To install node debugger
     npm i ndb --global
+--> To explore whats inside the error
+    console.log(`Error======================${JSON.stringify(error)}`);
 
     
