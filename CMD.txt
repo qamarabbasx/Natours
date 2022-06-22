@@ -82,5 +82,10 @@ Run powershell as administrator and run the below command
     console.log(`Error======================${JSON.stringify(error)}`);
 --> To remove already commited/staged file from GIT 
     git rm --cached config.env
+--> Add the following line to file .gitignore:
+    /Hello.class
+--> If you want to exclude all class files from Git, add the following line to .gitignore:
+    *.class
+
 
     
