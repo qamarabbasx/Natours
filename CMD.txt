@@ -86,6 +86,8 @@ Run powershell as administrator and run the below command
     /Hello.class
 --> If you want to exclude all class files from Git, add the following line to .gitignore:
     *.class
+--> To install bcryptjs npm package (used for encryption)
+    npm i bcryptjs
 
 
     
