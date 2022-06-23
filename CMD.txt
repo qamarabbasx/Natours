@@ -88,6 +88,8 @@ Run powershell as administrator and run the below command
     *.class
 --> To install bcryptjs npm package (used for encryption)
     npm i bcryptjs
+--> To install jwt 
+    npm i jsonwebtoken
 
 
     

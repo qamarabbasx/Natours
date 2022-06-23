@@ -7,8 +7,6 @@ const userSchema = mongoose.Schema(
     name: {
       type: String,
       required: [true, 'Please tell us your name!'],
-
-      trim: true,
     },
     email: {
       type: String,
@@ -22,6 +20,7 @@ const userSchema = mongoose.Schema(
       type: String,
       required: [true, 'Please provide a password'],
       minlength: 8,
+      select: false,
     },
     confirmPassword: {
       type: String,
@@ -47,9 +46,16 @@ userSchema.pre('save', async function (next) {
   // Hash the password with cost of 12 // cost is cpu intensive greater the value more it will be cpu intensive
   this.password = await bcrypt.hash(this.password, 12);
 
-  // Delete confirmPassword feild from database to persist
+  // Delete confirmPassword field from database to persist
   this.confirmPassword = undefined;
   next();
 });
+// this way we define instance methods :(these methods are available everywhere on this document)
+userSchema.methods.correctPassword = async function (
+  candidatePassword,
+  userPassword
+) {
+  return await bcrypt.compare(candidatePassword, userPassword);
+};
 const User = mongoose.model('User', userSchema);
 module.exports = User;
