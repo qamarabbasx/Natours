@@ -1,9 +1,8 @@
 /* eslint-disable arrow-body-style */
-const Tour = require('../models/tourModels');
+const Tour = require('../models/tourModel');
 const APIFeatures = require('../utils/apiFeatures');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
-const CatchAsync = require('../utils/catchAsync');
 
 exports.aliasTopTours = (req, res, next) => {
   req.query.limit = '5';
@@ -11,7 +10,7 @@ exports.aliasTopTours = (req, res, next) => {
   req.query.fields = 'name,price,ratingsAverage,summary,difficulty';
   next();
 };
-exports.getAllTours = CatchAsync(async (req, res, next) => {
+exports.getAllTours = catchAsync(async (req, res, next) => {
   console.log(req.query);
   // Execute query
   const features = new APIFeatures(Tour.find(), req.query)
@@ -43,7 +42,7 @@ exports.getTour = catchAsync(async (req, res, next) => {
     },
   });
 });
-exports.createTour = CatchAsync(async (req, res, next) => {
+exports.createTour = catchAsync(async (req, res, next) => {
   console.log('Im in new create tour');
   // const newTour = new Tour({});
   // newTour.save();
