@@ -1,3 +1,4 @@
+/* eslint-disable no-unreachable */
 /* eslint-disable arrow-body-style */
 const { promisify } = require('util');
 const jwt = require('jsonwebtoken');
@@ -20,6 +21,8 @@ exports.signup = catchAsync(async (req, res, next) => {
     confirmPassword: req.body.confirmPassword,
     passwordChangedAt: req.body.passwordChangedAt,
     role: req.body.role,
+    passwordResetToken: req.body.passwordResetToken,
+    passwordResetExpires: req.body.passwordResetExpires,
   });
   const token = signToken(newUser._id);
   res.status(201).json({
@@ -98,3 +101,16 @@ exports.restrictTo = (...roles) => {
     next();
   };
 };
+exports.forgotPassword = catchAsync(async (req, res, next) => {
+  // 1- Get user based on posted email
+  const user = await User.findOne({ email: req.body.email });
+  if (!user) {
+    return next(new AppError('There is no user with this email address', 404));
+  }
+  // generate random token
+  const resetToken = user.createPasswordResetToken();
+  await user.save({ validateBeforeSave: false });
+
+  // send it to user's email
+});
+exports.resetPassword = catchAsync(async (req, res, next) => {});
