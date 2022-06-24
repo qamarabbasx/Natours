@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable no-unreachable */
 /* eslint-disable arrow-body-style */
 const { promisify } = require('util');
@@ -5,6 +6,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
+const sendEmail = require('../utils/email');
 
 // eslint-disable-next-line arrow-body-style
 const signToken = (id) => {
@@ -112,5 +114,29 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   await user.save({ validateBeforeSave: false });
 
   // send it to user's email
+  const resetURL = `${req.protocol}://${req.get(
+    'host'
+  )}/api/v1/users/forgotPassword/${resetToken}`;
+  const message = `Forgot your password ? submit a PATCH request with your new pasword and your password confirm to: ${resetURL}.\nIf you didn't forgot your password ignore this email!`;
+  try {
+    console.log('this is try:', resetURL, message);
+    await sendEmail({
+      email: user.email,
+      subject: 'Your  password reset token valid for 10 minutes',
+      message,
+    });
+    res.status(200).json({
+      status: 'success',
+      message: 'Token sent to email',
+    });
+  } catch (err) {
+    user.passwordResetToken = undefined;
+    user.passwordResetExpires = undefined;
+    await user.save({ validateBeforeSave: false });
+    return next(
+      new AppError('There was error sending email. Try again later'),
+      500
+    );
+  }
 });
 exports.resetPassword = catchAsync(async (req, res, next) => {});

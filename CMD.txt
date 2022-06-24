@@ -90,6 +90,8 @@ Run powershell as administrator and run the below command
     npm i bcryptjs
 --> To install jwt 
     npm i jsonwebtoken
+--> To install nodemailer
+    npm i nodemailer
 
 
     
