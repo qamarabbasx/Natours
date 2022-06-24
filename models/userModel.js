@@ -15,6 +15,11 @@ const userSchema = mongoose.Schema({
     validate: [validator.isEmail, 'Please provide a valid email'],
   },
   photo: String,
+  role: {
+    type: String,
+    enum: ['user', 'admin', 'guide', 'lead-guide'],
+    default: 'user',
+  },
   password: {
     type: String,
     required: [true, 'Please provide a password'],
@@ -32,10 +37,7 @@ const userSchema = mongoose.Schema({
       message: 'Passwords are not the same !',
     },
   },
-  passwordChangedAt: {
-    type: Date,
-    required: [true, 'please provide passwordchanged date'],
-  },
+  passwordChangedAt: Date,
 });
 userSchema.pre('save', async function (next) {
   // Only runs this function if the password was actually modified
