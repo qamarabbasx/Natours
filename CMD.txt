@@ -103,6 +103,8 @@ Run powershell as administrator and run the below command
     npm i express-mongo-sanitize
 --> Data sanitization against XSS
     npm i xss-clean
+--> to instal http parameter pollution : prevents parameter pollution (handle duplicate query of same type)
+    npm i hpp
     
 
 
