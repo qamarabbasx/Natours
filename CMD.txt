@@ -74,9 +74,9 @@ Run powershell as administrator and run the below command
     ------------------------------------------------------------------------------
 --> To install driver for mongoDB
     npm i mongoose@5
---> To install validator for custom validation
+--> To install validator for custom validations
     npm i validator
---> To install node debugger
+--> To install node debugger (used to debug the code by placing brakes)
     npm i ndb --global
 --> To explore whats inside the error
     console.log(`Error======================${JSON.stringify(error)}`);
@@ -88,10 +88,12 @@ Run powershell as administrator and run the below command
     *.class
 --> To install bcryptjs npm package (used for encryption)
     npm i bcryptjs
---> To install jwt 
+--> To install jwt (jason web token encryption)
     npm i jsonwebtoken
---> To install nodemailer
+--> To install nodemailer (used to send emails)
     npm i nodemailer
+--> To install rate limiter (this limits no of requests )
+    npm i express-rate-limit
 
 
     
