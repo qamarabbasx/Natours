@@ -92,10 +92,18 @@ Run powershell as administrator and run the below command
     npm i jsonwebtoken
 --> To install nodemailer (used to send emails)
     npm i nodemailer
+    .....................................
+    Secuirity features
+    .....................................
 --> To install rate limiter (this limits no of requests )
     npm i express-rate-limit
 --> To install helmet (set security HTTP headers)
     npm i helmet
+--> Data sanitization against nosql query injections
+    npm i express-mongo-sanitize
+--> Data sanitization against XSS
+    npm i xss-clean
+    
 
 
     
