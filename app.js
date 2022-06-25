@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
+const helmet = require('helmet');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const tourRouter = require('./routes/tourRoutes');
@@ -8,28 +9,36 @@ const userRouter = require('./routes/userRoutes');
 
 const app = express();
 // 1) Global Middleware
+// set security http headers (always use in express app and always set at the top of middlewares)
+app.use(helmet());
+
+// Development logging
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
+
+// Limit request from same API
 const limiter = rateLimit({
   max: 100,
   windowMs: 60 * 60 * 1000,
   message: 'Too many requests from this IP, please try again after 1 hour',
 });
 app.use('/api', limiter);
-app.use(express.json());
+
+// Body parser: reading data from the body into req.body
+app.use(express.json({ limit: '10kb' }));
+
+// Serving static files
 app.use(express.static(`${__dirname}/public`));
-// Created our own middleware
-app.use((req, res, next) => {
-  console.log('Hello from the middleware');
-  next();
-});
-console.log(app.get('env'));
-// Another middleware
+
+// Test Middleware
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
+  // console.log(req.headers)
   next();
 });
+// logs in which development mode we are
+console.log(app.get('env'));
 
 // 3) Routes
 

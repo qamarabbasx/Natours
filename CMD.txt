@@ -94,6 +94,8 @@ Run powershell as administrator and run the below command
     npm i nodemailer
 --> To install rate limiter (this limits no of requests )
     npm i express-rate-limit
+--> To install helmet (set security HTTP headers)
+    npm i helmet
 
 
     
