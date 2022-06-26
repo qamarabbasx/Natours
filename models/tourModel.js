@@ -125,6 +125,14 @@ tourSchema.pre('save', function (next) {
   next();
 });
 
+tourSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'guides',
+    select: '-__v -passwordChangedAt',
+  });
+  next();
+});
+
 /**
  * To embed guides in tour documents
  * but this is not ideal approach in this case
