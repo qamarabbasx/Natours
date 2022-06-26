@@ -15,7 +15,7 @@
       }
     ],
     "spaced-comment": "off",
-    "no-console": "warn",
+    "no-console": "off", //will change to warn later
     "consistent-return": "off",
     "func-names": "off",
     "object-shorthand": "off",
