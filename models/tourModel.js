@@ -1,6 +1,7 @@
 /* eslint-disable prefer-arrow-callback */
 const mongoose = require('mongoose');
 const slugify = require('slugify');
+// const User = require('./userModel');
 // const validator = require('validator');
 
 const tourSchema = mongoose.Schema(
@@ -102,6 +103,13 @@ const tourSchema = mongoose.Schema(
         day: Number,
       },
     ],
+    // guides: Array, //this is for embeded way lecture
+    guides: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+      },
+    ],
   },
   {
     toJSON: { virtuals: true },
@@ -116,6 +124,18 @@ tourSchema.pre('save', function (next) {
   this.slug = slugify(this.name, { lower: true });
   next();
 });
+
+/**
+ * To embed guides in tour documents
+ * but this is not ideal approach in this case
+ * we will use reference method
+ */
+
+// tourSchema.pre('save', async function (next) {
+//   const guidesProm = this.guides.map(async (id) => await User.findById(id));
+//   this.guides = await Promise.all(guidesProm);
+//   next();
+// });
 
 // tourSchema.pre('save', function (next) {
 //   console.log('Will save document in DB ...');
