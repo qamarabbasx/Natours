@@ -109,10 +109,10 @@ Run powershell as administrator and run the below command
 --> to instal http parameter pollution : prevents parameter pollution (handle duplicate query of same type)
     npm i hpp
 
-    --------------------------- db admin
-    "email":"admin@gmail.com",          "email":"test@gmail.com", "password":"12345678"
-    "password":"newpassword"
-    ---------------------------
+    --------------------------- 
+    "email":"admin@natours.io",
+    "password":"test1234"
+    ''''''''''''''''''''''''''''
     
 
 
