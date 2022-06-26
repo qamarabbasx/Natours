@@ -41,6 +41,9 @@ Run powershell as administrator and run the below command
     --------------------------------------------
     MongoDb commands
     --------------------------------------------
+--> To import/delete json file into DB  
+    node ./dev-data/data/import-dev-data.js --import
+    node ./dev-data/data/import-dev-data.js --delete
 --> To run server
     C:\Program Files\MongoDB\Server\5.0\bin
     mongod.exe

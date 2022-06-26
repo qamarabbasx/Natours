@@ -1,7 +1,7 @@
 const fs = require('fs');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const Tour = require('../../models/tourModels');
+const Tour = require('../../models/tourModel');
 
 dotenv.config({ path: './config.env' });
 const DB = process.env.DATABASE.replace(
@@ -17,9 +17,7 @@ mongoose
   .then(() => console.log('Connection to database SUCCESSFUL'));
 
 //   Read Json File
-const tours = JSON.parse(
-  fs.readFileSync(`${__dirname}/tours-simple.json`, 'utf-8')
-);
+const tours = JSON.parse(fs.readFileSync(`${__dirname}/tours.json`, 'utf-8'));
 
 // Import data into DB
 const importData = async () => {
