@@ -5,11 +5,12 @@ const authController = require('../controllers/authController');
 const router = express.Router({ mergeParams: true });
 
 // POST /tour/4273542/reviews
+// GET /tour/4273542/reviews
 // POST /reviews
 
 router
   .route('/')
-  .get(authController.protect, reviewController.getAllReviews)
+  .get(reviewController.getAllReviews)
   .post(
     authController.protect,
     authController.restrictTo('user'),
