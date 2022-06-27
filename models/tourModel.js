@@ -179,10 +179,10 @@ tourSchema.post(/^find/, function (docs, next) {
 });
 
 // Aggregate Middleware
-tourSchema.pre('aggregate', function (next) {
-  this.pipeline().unshift({ $match: { secretTour: { $ne: true } } }); //unshift to add at the first place in array
-  console.log(this.pipeline());
-  next();
-});
+// tourSchema.pre('aggregate', function (next) {
+//   this.pipeline().unshift({ $match: { secretTour: { $ne: true } } }); //unshift to add at the first place in array
+//   console.log(this.pipeline());
+//   next();
+// });
 const Tour = mongoose.model('Tour', tourSchema);
 module.exports = Tour;
