@@ -113,6 +113,9 @@ Run powershell as administrator and run the below command
     "email":"admin@natours.io",
     "password":"test1234"
     ''''''''''''''''''''''''''''
+    ---------- Server Side Rendering section started --------------
+--> To install pug
+    npm i pug
     
 
 
