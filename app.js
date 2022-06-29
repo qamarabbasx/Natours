@@ -22,8 +22,21 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // set security http headers (always use in express app and always set at the top of middlewares)
-app.use(helmet());
-
+app.use(
+  helmet({
+    crossOriginEmbedderPolicy: false,
+    crossOriginResourcePolicy: {
+      allowOrigins: ['*'],
+    },
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ['*'],
+        scriptSrc: ["* data: 'unsafe-eval' 'unsafe-inline' blob:"],
+        'img-src': ["* data: 'unsafe-eval' 'unsafe-inline' blob:"],
+      },
+    },
+  })
+);
 // Development logging
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
