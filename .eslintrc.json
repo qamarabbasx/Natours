@@ -4,6 +4,9 @@
     "prettier",
     "plugin:node/recommended"
   ],
+  "parserOptions": {
+    "sourceType": "module"
+  },
   "plugins": [
     "prettier"
   ],

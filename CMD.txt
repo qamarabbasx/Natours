@@ -116,6 +116,10 @@ Run powershell as administrator and run the below command
     ---------- Server Side Rendering section started --------------
 --> To install pug
     npm i pug
+--> To install parcel to bundle all files 
+    npm i parcel-bundler --save-dev , axios , @babel/polyfill
+    npm i axios
+    npm i @babel/polyfill
     
 
 
