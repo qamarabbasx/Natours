@@ -118,8 +118,13 @@ Run powershell as administrator and run the below command
     npm i pug
 --> To install parcel to bundle all files 
     npm i parcel-bundler --save-dev , axios , @babel/polyfill
-    npm i axios
-    npm i @babel/polyfill
+    npm i axios // used to call APIs
+    npm i @babel/polyfill // convert es6 to previous versions so that older browsers can under stand
+--> To install multer: A papular middleware to upload photos
+    npm i multer
+    see multer documentation for more
+--> To install sharp: A Image processing library for node js (Best for image resizing in simple way)
+    npm i sharp
     
 
 
