@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
-const sendEmail = require('../utils/email');
+const Email = require('../utils/email');
 
 // eslint-disable-next-line arrow-body-style
 const signToken = (id) => {
@@ -49,6 +49,9 @@ exports.signup = catchAsync(async (req, res, next) => {
     passwordResetExpires: req.body.passwordResetExpires,
     active: req.body.active,
   });
+  const url = `${req.protocol}://${req.get('host')}/me`;
+  console.log(url);
+  await new Email(newUser, url).sendWelcome();
   createSendToken(newUser, 201, res);
 });
 exports.login = catchAsync(async (req, res, next) => {
@@ -167,16 +170,11 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   await user.save({ validateBeforeSave: false });
 
   // send it to user's email
-  const resetURL = `${req.protocol}://${req.get(
-    'host'
-  )}/api/v1/users/forgotPassword/${resetToken}`;
-  const message = `Forgot your password ? submit a PATCH request with your new pasword and your password confirm to: ${resetURL}.\nIf you didn't forgot your password ignore this email!`;
   try {
-    await sendEmail({
-      email: user.email,
-      subject: 'Your  password reset token valid for 10 minutes',
-      message,
-    });
+    const resetURL = `${req.protocol}://${req.get(
+      'host'
+    )}/api/v1/users/forgotPassword/${resetToken}`;
+    await new Email(user, resetURL).sendPasswordReset();
     res.status(200).json({
       status: 'success',
       message: 'Token sent to email',

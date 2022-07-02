@@ -125,6 +125,11 @@ Run powershell as administrator and run the below command
     see multer documentation for more
 --> To install sharp: A Image processing library for node js (Best for image resizing in simple way)
     npm i sharp
+--> To install html-to-text: This is package to convert html to text
+    npm i html-to-text
+
+//- Email template adapted from https://github.com/leemunroe/responsive-html-email-template
+//- Converted from HTML using https://html2pug.now.sh/
     
 
 
