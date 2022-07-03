@@ -50,7 +50,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     active: req.body.active,
   });
   const url = `${req.protocol}://${req.get('host')}/me`;
-  console.log(url);
+  // console.log(url);
   await new Email(newUser, url).sendWelcome();
   createSendToken(newUser, 201, res);
 });
@@ -88,7 +88,7 @@ exports.protect = catchAsync(async (req, res, next) => {
   } else if (req.cookies.jwt) {
     token = req.cookies.jwt;
   }
-  console.log(token);
+  // console.log(token);
   if (!token) {
     return next(
       new AppError('You are not Logged In! Please log in to get access. ', 401)
@@ -97,7 +97,6 @@ exports.protect = catchAsync(async (req, res, next) => {
 
   // 2- Token Verification
   const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
-  console.log(decoded);
 
   // 3 Check if user still exists
   const currentUser = await User.findById(decoded.id);
@@ -128,7 +127,6 @@ exports.isLoggedIn = async (req, res, next) => {
         req.cookies.jwt,
         process.env.JWT_SECRET
       );
-      console.log(decoded);
       // 2- Check if user still exists
       const currentUser = await User.findById(decoded.id);
       if (!currentUser) {

@@ -1,3 +1,4 @@
 node_modules
 /config.env
 /Natours.postman_collection.json
+.cache

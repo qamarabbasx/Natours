@@ -129,6 +129,8 @@ Run powershell as administrator and run the below command
     npm i html-to-text
 --> To install stripe
     npm i stripe
+--> To install compression : A middleware to compress text of website before deployment on server 
+    npm i compression
 
 //- Email template adapted from https://github.com/leemunroe/responsive-html-email-template
 //- Converted from HTML using https://html2pug.now.sh/
