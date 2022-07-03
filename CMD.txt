@@ -132,6 +132,19 @@ Run powershell as administrator and run the below command
 --> To install compression : A middleware to compress text of website before deployment on server 
     npm i compression
 
+-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->
+HEROKU STUFF
+-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->
+    heroku login
+    heroku create
+    git push heroku main
+    set environmental variables from config.env file
+    heroku config:set NODE_ENV=production
+    heroku open
+    heroku apps:rename natours-by-qamar
+
+
+
 //- Email template adapted from https://github.com/leemunroe/responsive-html-email-template
 //- Converted from HTML using https://html2pug.now.sh/
     
