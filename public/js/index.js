@@ -4,6 +4,7 @@ import '@babel/polyfill';
 import { displayMap } from './mapbox';
 import { login, logout } from './login';
 import { updateSettings } from './updateSettings';
+import { bookTour } from './stripe';
 
 // DOM Elements
 const mapBox = document.getElementById('map');
@@ -11,6 +12,7 @@ const loginForm = document.querySelector('.form--login');
 const logoutBtn = document.querySelector('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
+const bookTourBtn = document.getElementById('book-tour');
 
 // Delegation
 if (mapBox) {
@@ -58,5 +60,15 @@ if (userPasswordForm) {
     document.getElementById('password-current').value = '';
     document.getElementById('password').value = '';
     document.getElementById('password-confirm').value = '';
+  });
+}
+
+if (bookTourBtn) {
+  bookTourBtn.addEventListener('click', (e) => {
+    e.target.textContent = 'Processing ...';
+    // we defined dataset on this button as data-tour-id , we read this in js as dataset.tourId
+    //  const tourId = e.target.dataset.tourId;
+    const { tourId } = e.target.dataset;
+    bookTour(tourId);
   });
 }
