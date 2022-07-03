@@ -142,6 +142,9 @@ HEROKU STUFF
     heroku config:set NODE_ENV=production
     heroku open
     heroku apps:rename natours-by-qamar
+    heroku logs --tail
+--> To implement cross origin resourse sharing
+    npm i cors
 
 
 
